@@ -43,6 +43,7 @@ pytest = ">=8.3.5,<9"
 nbval = ">=0.11.0,<0.12"
 jupytext = ">=1.17.1,<2"
 ipympl = ">=0.9"
+edrixs = { version = ">=0.1.1", channel = "conda-forge" }
 
 [feature.base.pypi-dependencies]
 sphinx = ">=8.0.2"
