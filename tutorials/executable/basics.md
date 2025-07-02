@@ -16,7 +16,7 @@ kernelspec:
 ## Basics
 
 ```{code-cell} ipython3
-1 + 3
+1 + 4
 ```
 
 ```{code-cell} ipython3
