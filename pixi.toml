@@ -89,6 +89,7 @@ notebook = "~=7.2.1"
 jupyterlab-myst = ">=2.4"
 jupytext = ">=1.16"
 ipympl = ">=0.9"
+edrixs = { version = ">=0.1.1", channel = "conda-forge" }
 
 [feature.jupyterlite-host.tasks]
 setup_wasm = {cmd = "pixi install -e jupyterlite-runtime", inputs = ["pixi.lock"]}
