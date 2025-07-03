@@ -18,7 +18,7 @@ Install the [docker] application on your computer.
 Download and extract the [repository].
 
 Open the Docker Desktop app and go to the Terminal tab in the bottom right corner.
-Change directory via `cd` first into the download folder and into the primary `RIXSREXS2025-tutorials-main` folder containing the `docker-compose.yml` file and execute
+Change directory via `cd` first into the download folder and then into the primary `RIXSREXS2025-tutorials-main` folder containing the `docker-compose.yml` file and execute
 
 ```console
 docker compose up
