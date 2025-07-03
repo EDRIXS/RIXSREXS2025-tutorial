@@ -18,7 +18,7 @@ kernelspec:
 ```{code-cell} ipython3
 import edrixs
 umat = edrixs.get_umat_slater('p', 1, 2)
-print(unit)
+print(umat)
 ```
 
 ```{code-cell} ipython3
