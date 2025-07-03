@@ -3,6 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - jupyterlab=3.*
+  - jupytext
   - edrixs>=0.0.8
   - ipympl=0.9.*
   - ipywidgets=8.*
