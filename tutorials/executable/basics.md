@@ -21,6 +21,16 @@ umat = edrixs.get_umat_slater('p', 1, 2)
 print(umat)
 ```
 
+$$
+    \begin{equation}
+    \hat{H} = \sum_{\alpha,\beta,\gamma,\delta,\sigma,\sigma^\prime}
+    U_{\alpha\sigma,\beta\sigma^\prime,\gamma\sigma^\prime,\delta\sigma}
+    \hat{f}^{\dagger}_{\alpha\sigma}
+    \hat{f}^{\dagger}_{\beta\sigma^\prime}
+    \hat{f}_{\gamma\sigma^\prime}\hat{f}_{\delta\sigma},
+    \end{equation}
+$$
+
 ```{code-cell} ipython3
 a = 8**2
 ```
