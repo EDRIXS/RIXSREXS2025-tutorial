@@ -1,42 +1,10 @@
-# Executable Tutorials
+# EDRIXS Tutorials
 
-This is meant to demonstrate by example how to deploy tutorial materials. The
-examples show common patterns including runnable code, plots, exercises with
-solutions, etc.
+These tutorials introduce the use of EDRIXS.
 
 ## How to Run The Code
 
 `````{tab-set}
-````{tab-item} Locally with pixi
-
-Clone the repository and launch JupyterLab.
-
-```sh
-git clone https://github.com/scientific-python/executable-tutorials
-cd executable-tutorials
-
-pixi run start
-```
-````
-
-````{tab-item} Locally with pip
-
-Clone the repository, create an enviornment, install the requirements, and
-launch JupyterLab.
-
-
-```sh
-git clone https://github.com/scientific-python/executable-tutorials
-cd executable-tutorials
-
-python -m venv .venv
-source .venv/bin/activate
-
-pip install -r requirements.txt
-jupyter lab
-```
-````
-
 ````{tab-item} In Cloud with Binder
 
 [Open on Binder][].
@@ -66,18 +34,4 @@ tutorials/**/*
 
 ```
 
-
-## Contributing documentation
-
-```{toctree}
----
-maxdepth: 1
-caption: Contributing
----
-
-contributing
-maintainer-guide
-```
-
-[Open on Binder]: https://mybinder.org/v2/gh/scientific-python/executable-tutorials/main?urlpath=tree/tutorials/
-[Open with JupyterLite]: https://scientific-python.github.io/executable-tutorials/jupyterlite/lab/index.html
+[Open on Binder]: https://mybinder.org/v2/gh/EDRIXS/RIXSREXS2025-tutorial/main?urlpath=tree/tutorials/

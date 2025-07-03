@@ -47,9 +47,9 @@ nb_execution_excludepatterns = []
 # a list of builtin themes.
 #
 html_theme = 'sphinx_book_theme'
-html_title = 'Executable Tutorials'
+html_title = 'EDRIXS Tutorials'
 html_theme_options = {
-    "repository_url": "https://github.com/scientific-python/executable-tutorials",
+    "repository_url": "https://github.com/EDRIXS/RIXSREXS2025-tutorial",
     "repository_branch": "main",
     "use_repository_button": True,
     "use_issues_button": True,
