@@ -14,4 +14,14 @@ dependencies:
   - hdf5
   - seaborn
   - sphinx-gallery
+  - myst-nb
+  - sphinx-book-theme
+  - sphinx-design
+  - sphinx-copybutton
+  # for testing
+  - pytest
+  - nbval
+  - pytest-custom_exit_code
+  - jupytext
+  - jupyterlab-myst
 
