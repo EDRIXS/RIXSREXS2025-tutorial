@@ -5,15 +5,24 @@ These tutorials introduce the use of EDRIXS.
 ## How to Run The Code
 
 `````{tab-set}
-````{tab-item} In Cloud with Binder
+````{tab-item} In Cloud with Binder (recommended)
 
 [Open on Binder][].
 
 ````
 
-````{tab-item} JupyterLite (experimental)
+````{tab-item} Locally via Docker
 
-[Open with JupyterLite][].
+Install the [docker]
+application on your computer.
+
+Download and extract the [respository].
+
+From within the `RIXSREXS2025-tutorial` folder execute
+
+```console
+docker compose up
+```
 
 ````
 `````
@@ -33,5 +42,6 @@ caption: User tutorials
 tutorials/**/*
 
 ```
-
 [Open on Binder]: https://mybinder.org/v2/gh/EDRIXS/RIXSREXS2025-tutorial/main?urlpath=tree/tutorials/
+[docker]: https://www.docker.com/products/docker-desktop/
+[respository]: https://github.com/EDRIXS/RIXSREXS2025-tutorial/archive/refs/heads/main.zip
