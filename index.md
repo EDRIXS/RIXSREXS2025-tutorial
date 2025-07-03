@@ -13,12 +13,12 @@ These tutorials introduce the use of EDRIXS.
 
 ````{tab-item} Locally via Docker
 
-Install the [docker]
-application on your computer.
+Install the [docker] application on your computer.
 
-Download and extract the [respository].
+Download and extract the [repository].
 
-From within the `RIXSREXS2025-tutorial` folder execute
+Open the Docker Desktop app and go to the Terminal tab in the bottom right corner.
+Change directory via `cd` into the `RIXSREXS2025-tutorial` folder and execute
 
 ```console
 docker compose up
@@ -44,4 +44,4 @@ tutorials/**/*
 ```
 [Open on Binder]: https://mybinder.org/v2/gh/EDRIXS/RIXSREXS2025-tutorial/main?urlpath=tree/tutorials/
 [docker]: https://www.docker.com/products/docker-desktop/
-[respository]: https://github.com/EDRIXS/RIXSREXS2025-tutorial/archive/refs/heads/main.zip
+[repository]: https://github.com/EDRIXS/RIXSREXS2025-tutorial/archive/refs/heads/main.zip

@@ -1,16 +1,12 @@
-version: "3.9"
-
 services:
   pixi-jlab:
     build:
       context: .
-    image: my-pixi-jlab
+    image: edrixs_tutorial_image
     platform: linux/amd64   # ensures amd64 for both build & run (requires BuildKit)
     ports:
-      - "7777:7777"
+      - "8888:8888"
     volumes:
       - .:/app
-    tty: true               # enables TTY like -t
-    stdin_open: true        # keeps STDIN open like -i
 
 
