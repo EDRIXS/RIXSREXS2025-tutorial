@@ -12,23 +12,22 @@ kernelspec:
 ---
 
 # RIXS calculations for an atomic model
-Here we show how to compute RIXS for a single site atomic model with crystal
-field and electron-electron interactions. We take the case of
-Sr₂YIrO₆ from Ref. [1]_ as the material in question.
+Here we show how to compute RIXS Sr₂YIrO₆.
 
-```python
+```{code-cell} ipython3
+:tags: [hide-output]
 import edrixs
 import numpy as np
 import matplotlib.pyplot as plt
+
+%matplotlib widget
 ```
 
 ## Specify active core and valence orbitals
 Sr₂YIrO₆  has a $5d^4$ electronic configuration and
-we want to calculate the $L_3$ edge spectrum i.e. resonating with a
-$2p_{3/2}$ core hole. We will start by including only the
-$t_{2g}$ valance orbitals.
+we want to calculate the $L_3$ edge spectrum.
 
-```python
+```{code-cell} ipython3
 shell_name = ('t2g', 'p32')
 v_noccu = 4
 ```
@@ -36,15 +35,9 @@ v_noccu = 4
 ## Slater parameters
 Here we want to use Hund's interaction
 $J_H$ and spin orbit coupling $\lambda$ as adjustable parameters
-to match experiment. We will take
-the core hole interaction parameter from the Hartree Fock numbers EDRIXS has
-in its database. These need to be converted and arranged into the order
-required by EDRIXS.
+to match experiment.
 
-
-
-
-```python
+```{code-cell} ipython3
 Ud = 2
 JH = 0.25
 lam = 0.42
@@ -80,7 +73,7 @@ so we do not need to pass an additional :code:`v_cfmat` matrix.
 
 
 
-```python
+```{code-cell} ipython3
 off = 11215 - 6
 out = edrixs.ed_1v1c_py(shell_name, shell_level=(0, -off), v_soc=v_soc,
                         c_soc=info['c_soc'], v_noccu=v_noccu, slater=slater)
@@ -114,10 +107,7 @@ population. The function :code:`xas_1v1c_py` assumes that the spectral
 broadening is dominated by the inverse core hole lifetime :code:`gamma_c`,
 which is the Lorentzian half width at half maximum.
 
-
-
-
-```python
+```{code-cell} ipython3
 ominc = np.linspace(11200, 11230, 50)
 temperature = 300  # in K
 prob = edrixs.boltz_dist(eval_i, temperature)
@@ -147,10 +137,7 @@ experiments, the emitted polarization is not resolved
 one needs to add both emitted polarization channels, which is what we will
 do later on in this example.
 
-
-
-
-```python
+```{code-cell} ipython3
 eloss = np.linspace(-.5, 6, 400)
 pol_type_rixs = [('linear', 0, 'linear', 0), ('linear', 0, 'linear', np.pi/2)]
 
@@ -180,7 +167,7 @@ tricks to sum over the two different emitted polarizations.
 
 
 
-```python
+```{code-cell} ipython3
 fig, axs = plt.subplots(2, 2, figsize=(10, 10))
 
 
@@ -225,7 +212,7 @@ is the amount the crystal field moves the $t_{2g}$ subshell.
 
 
 
-```python
+```{code-cell} ipython3
 ten_dq = 3.5
 v_cfmat = edrixs.cf_cubic_d(ten_dq)
 off = 11215 - 6 + ten_dq*2/5
