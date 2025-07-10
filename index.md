@@ -53,6 +53,7 @@ maxdepth: 1
 glob:
 ---
 tutorials/intro/intro.md
+tutorials/atomic_model.md
 ```
 [Open on Binder]: https://mybinder.org/v2/gh/EDRIXS/RIXSREXS2025-tutorial/main?urlpath=tree/tutorials/
 [docker]: https://www.docker.com/products/docker-desktop/
