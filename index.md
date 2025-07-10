@@ -1,11 +1,11 @@
-# EDRIXS Tutorials
+# EDRIXS Course for RIXSREXS2025
 
 These tutorials introduce the use of EDRIXS.
 
 ## How to Run The Code
-
+For the tutorial, recommend running the code entirely online via the first option "In could via Binder".
 `````{tab-set}
-````{tab-item} In Cloud with Binder (recommended)
+````{tab-item} In cloud via Binder
 
 [Open on Binder][].
 
@@ -23,7 +23,21 @@ Change directory via `cd` first into the download folder and then into the prima
 ```console
 docker compose up
 ```
+````
 
+````{tab-item} Locally on linux
+
+If you don't already have git, install it and, if needed, install pixi via
+
+```console
+curl -fsSL https://pixi.sh/install.sh | bash
+```
+Then the tutorials can be run via
+```console
+git clone https://github.com/EDRIXS/RIXSREXS2025-tutorial.git
+cd RIXSREXS2025-tutorial
+pixi run start
+```
 
 ````
 `````
@@ -31,17 +45,14 @@ docker compose up
 Or, instead of _running_ the code, you may view the code and results by
 following the links below.
 
-## Example Tutorials
+## Tutorials
 
 ```{toctree}
 ---
 maxdepth: 1
 glob:
-caption: User tutorials
 ---
-
-tutorials/**/*
-
+tutorials/intro/intro.md
 ```
 [Open on Binder]: https://mybinder.org/v2/gh/EDRIXS/RIXSREXS2025-tutorial/main?urlpath=tree/tutorials/
 [docker]: https://www.docker.com/products/docker-desktop/
