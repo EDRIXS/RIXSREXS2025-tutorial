@@ -1,3 +1,16 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.16.4
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
+---
+
 # RIXS calculations for an atomic model
 Here we show how to compute RIXS for a single site atomic model with crystal
 field and electron-electron interactions. We take the case of
