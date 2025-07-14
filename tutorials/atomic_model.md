@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.4
+    jupytext_version: 1.17.2
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -12,10 +12,11 @@ kernelspec:
 ---
 
 # RIXS calculations for an atomic model
-Here we show how to compute RIXS Sr₂YIrO₆.
+Here we show how to compute RIXS for Sr₂YIrO₆.
 
 ```{code-cell} ipython3
 :tags: [hide-output]
+
 import edrixs
 import numpy as np
 import matplotlib.pyplot as plt
@@ -24,7 +25,7 @@ import matplotlib.pyplot as plt
 ```
 
 ## Specify active core and valence orbitals
-Sr₂YIrO₆  has a $5d^4$ electronic configuration and
+Sr₂YIrO₆ has a $5d^4$ electronic configuration and
 we want to calculate the $L_3$ edge spectrum.
 
 ```{code-cell} ipython3
@@ -36,6 +37,27 @@ v_noccu = 4
 Here we want to use Hund's interaction
 $J_H$ and spin orbit coupling $\lambda$ as adjustable parameters
 to match experiment.
+
+```{code-cell} ipython3
+Ud = 1
+JH = 0
+lam = 0
+F0_d, F2_d, F4_d = edrixs.UdJH_to_F0F2F4(Ud, JH)
+info = edrixs.utils.get_atom_data('Ir', '5d', v_noccu, edge='L3')
+G1_dp = info['slater_n'][5][1]
+G3_dp = info['slater_n'][6][1]
+F0_dp = edrixs.get_F0('dp', G1_dp, G3_dp)
+F2_dp = info['slater_n'][4][1]
+
+slater_i = [F0_d, F2_d, F4_d]   # Fk for d
+slater_n = [
+    F0_d, F2_d, F4_d,   # Fk for d
+    F0_dp*0, F2_dp*0,        # Fk for dp
+    G1_dp, G3_dp,        # Gk for dp
+]
+slater = [slater_i, slater_n]
+v_soc = (lam, lam)
+```
 
 ```{code-cell} ipython3
 Ud = 2
@@ -53,8 +75,7 @@ slater_n = [
     F0_d, F2_d, F4_d,   # Fk for d
     F0_dp, F2_dp,        # Fk for dp
     G1_dp, G3_dp,        # Gk for dp
-    0.0, 0.0           # Fk for p
-]
+]a
 slater = [slater_i, slater_n]
 v_soc = (lam, lam)
 ```
@@ -69,9 +90,6 @@ $4 F^0_d\approx6$ eV. In this case
 we are assuming a perfectly cubic crystal field, which we have already
 implemented when we specified the use of the $t_{2g}$ subshell only
 so we do not need to pass an additional :code:`v_cfmat` matrix.
-
-
-
 
 ```{code-cell} ipython3
 off = 11215 - 6
@@ -164,9 +182,6 @@ Note that the rixs array :code:`rixs` has shape
 :code:`(len(ominc_xas), len(ominc_xas), len(pol_type))`. We will use some numpy
 tricks to sum over the two different emitted polarizations.
 
-
-
-
 ```{code-cell} ipython3
 fig, axs = plt.subplots(2, 2, figsize=(10, 10))
 
@@ -208,9 +223,6 @@ $t_{2g}$ subshell for iridates [2]_. Let's test this. We specify that
 the full $d$ shell should be used and apply cubic crystal field matrix
 :code:`v_cfmat`. We shift the energy offset by $\frac{2}{5}10D_q$, which
 is the amount the crystal field moves the $t_{2g}$ subshell.
-
-
-
 
 ```{code-cell} ipython3
 ten_dq = 3.5
@@ -257,5 +269,3 @@ of Sr\ :sub:`2`\ YIrO\ :sub:`6`\  is dependent on the model.
 
 .. [2] Georgios L. Stamokostas and Gregory A. Fiete
        [Phys. Rev. B 97, 085150 (2018)](https://doi.org/10.1103/PhysRevB.97.085150).
-
-

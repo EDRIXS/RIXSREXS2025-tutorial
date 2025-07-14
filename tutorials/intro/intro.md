@@ -1,5 +1,7 @@
 # Introductory material
 
+[EDRIXS](https://edrixs.github.io/edrixs/) is an open-source toolkit for performing exact diagonalization calculations [^1].
+
 
 ## Geometry and notation
 
@@ -46,4 +48,6 @@ The four fermion term includes:
 * Core-valence Coulomb interactions e.g. Slater integrals $G^1_{dp}$ and $G^3_{dp}$.
 
 ## Basis
-By default, EDRIXS will work in the complex harmonic basis $Y^m_l$ where $m$ goes from $-l,-l+1,...,l-1, l$. There is an up spin and a down spin for each $Y^m_l$. In many places it will perform basis from what is called the real harmonic basis $d_{3z^2-r^2}, d_{xz}, d_{yz}, d_{x^2-y^2}, d_{xy}$.
+By default, EDRIXS will work in the complex harmonic basis $Y^m_l$ where $m$ goes from $-l,-l+1,...,l-1, l$. There is an up spin and a down spin for each $Y^m_l$. On occation we will also use the real harmonic basis $d_{3z^2-r^2}, d_{xz}, d_{yz}, d_{x^2-y^2}, d_{xy}$. EDRIXS can straightfowardly translate between these notations.
+
+[^1]: EDRIXS: An open source toolkit for simulating spectra of resonant inelastic x-ray scattering, YL Wang, G Fabbris, MPM Dean, and G Kotliar, Computer Physics Communications 243, 151–165 (2019)
