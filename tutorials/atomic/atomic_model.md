@@ -29,7 +29,7 @@ import matplotlib.pyplot as plt
 ```
 
 ```{code-cell} ipython3
-:tags: [hide_input, hide_output]
+:tags: [remove_input, remove_output]
 # Secretly make figures look nice!
 plt.rcParams.update({
     'figure.dpi': 200,
@@ -80,10 +80,6 @@ eval_i, eval_n, trans_op = out
 ## Compute XAS
 
 ```{code-cell} ipython3
-eval_i[0]- eval_i[1]
-```
-
-```{code-cell} ipython3
 :tags: [hide-output]
 
 ominc = np.arange(11200, 11230, 0.1)
@@ -117,8 +113,7 @@ rixs = edrixs.rixs_1v1c_py(
 )
 ```
 
-The array :code:`xas` will have shape
-:code:`(len(ominc_xas), len(pol_type))`
+The array ``xas`` will have shape ``(len(ominc_xas), len(pol_type))``.
 
 
 

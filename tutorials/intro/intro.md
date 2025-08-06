@@ -1,6 +1,6 @@
 # Introductory material
 
-[EDRIXS](https://edrixs.github.io/edrixs/) is an open-source toolkit for performing exact diagonalization calculations. See Ref. [^1] for the original paper, Ref. [^2] for the docs, and Ref. [^3] for the source code.  
+[EDRIXS](https://edrixs.github.io/edrixs/) is an open-source toolkit for performing exact diagonalization RIXS calculations. See Ref. [^1] for the original paper, Ref. [^2] for the docs, and Ref. [^3] for the source code.  
 
 
 ## Geometry and notation
@@ -50,7 +50,7 @@ The four fermion term, called ``umat`` in the code, includes:
 ## Basis
 By default, EDRIXS will work in the complex harmonic basis $Y^m_l$ where $m$ goes from $-l,-l+1,...,l-1, l$. There is an up spin and a down spin for each $Y^m_l$. On occation we will also use the real harmonic basis $d_{3z^2-r^2}, d_{xz}, d_{yz}, d_{x^2-y^2}, d_{xy}$. EDRIXS can straightfowardly translate between these notations.
 
-[^1]: EDRIXS: An open source toolkit for simulating spectra of resonant inelastic x-ray scattering, YL Wang, G Fabbris, MPM Dean, and G Kotliar, Computer Physics [Communications 243, 151–165 (2019)](https://doi.org/10.1016/j.cpc.2019.04.018)
+[^1]: EDRIXS: An open source toolkit for simulating spectra of resonant inelastic x-ray scattering, YL Wang, G Fabbris, MPM Dean, and G Kotliar, [Computer Physics Communications 243, 151–165 (2019)](https://doi.org/10.1016/j.cpc.2019.04.018)
 
 [^2]: [EDRIXS website](https://edrixs.github.io/edrixs/)
 

@@ -25,11 +25,15 @@ import edrixs
 import numpy as np
 import matplotlib.pyplot as plt
 
+%matplotlib widget
+```
+
+```{code-cell} ipython3
+:tags: [remove_input, remove_output]
+# Secretly make figures look nice!
 plt.rcParams.update({
     'figure.dpi': 200,
     'savefig.dpi': 300})
-
-%matplotlib widget
 ```
 
 ## Electrons and active shells
