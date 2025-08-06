@@ -38,6 +38,7 @@ scripts = ["activate.sh"]
 python = ">=3.11"
 matplotlib-base = ">=3.9"
 jupyterlab = ">=4.2"
+jupyterlab-mathjax3 = ">=4.3"
 jupyterlab-myst = ">=2.4"
 pytest = ">=8.3.5,<9"
 nbval = ">=0.11.0,<0.12"
