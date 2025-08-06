@@ -30,6 +30,7 @@ import matplotlib.pyplot as plt
 
 ```{code-cell} ipython3
 :tags: [remove_input, remove_output]
+
 # Secretly make figures look nice!
 plt.rcParams.update({
     'figure.dpi': 200,

@@ -56,6 +56,6 @@ tutorials/intro/intro.md
 tutorials/atomic/atomic_model.md
 tutorials/AIM/AIM.md
 ```
-[Open on Binder]: https://mybinder.org/v2/gh/EDRIXS/RIXSREXS2025-tutorial/main?urlpath=tree/tutorials/
+[Open on Binder]: https://mybinder.org/v2/gh/EDRIXS/RIXSREXS2025-tutorial/HEAD?urlpath=lab/tree/tutorials/
 [docker]: https://www.docker.com/products/docker-desktop/
 [repository]: https://github.com/EDRIXS/RIXSREXS2025-tutorial/archive/refs/heads/main.zip
