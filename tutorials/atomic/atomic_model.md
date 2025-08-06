@@ -199,7 +199,4 @@ plt.tight_layout()
 
 ## References
 [^1]: Bo Yuan et al.,
-       [Phys. Rev. B 95, 235114 (2017)](https://doi.org/10.1103/PhysRevB.95.235114).
-
-[^2]: Georgios L. Stamokostas and Gregory A. Fiete,
-       [Phys. Rev. B 97, 085150 (2018)](https://doi.org/10.1103/PhysRevB.97.085150).
+       [Phys. Rev. B 95, 235114 (2017)](https://doi.org/10.1103/PhysRevB.95.235114)
