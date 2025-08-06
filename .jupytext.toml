@@ -1,0 +1,3 @@
+default_jupytext_formats = "md"
+formats = "ipynb,md"
+
