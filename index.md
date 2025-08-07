@@ -2,8 +2,15 @@
 
 These tutorials introduce the use of EDRIXS.
 
+- _tutorials/intro/intro.md_ -- Summary of EDRIXS notation, geometry, Hamiltonian, and basis
+- _tutorials/atomic/atomic_model.md_ -- Single atom model for an iridate
+- _tutorials/AIM/AIM.md_ -- Anderson Impurity Model (AIM) for NiPS₃
+
 ## How to Run The Code
-For the tutorial, recommend running the code entirely online via the first option "In could via Binder".
+For the tutorial, we recommend running the code entirely online via the first option, "In cloud via Binder".
+
+Open the .md files via right click > open with > Jupytext Notebook.
+
 `````{tab-set}
 ````{tab-item} In cloud via Binder
 
