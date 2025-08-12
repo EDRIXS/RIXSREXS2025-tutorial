@@ -47,6 +47,7 @@ ipympl = ">=0.9"
 edrixs = { version = ">=0.1.1", channel = "conda-forge" }
 
 [feature.base.pypi-dependencies]
+markdown-it-py = "<4.0.0" # build error
 sphinx = ">=8.0.2"
 myst-nb = ">=1.1"
 jupytext = ">=1.16"
