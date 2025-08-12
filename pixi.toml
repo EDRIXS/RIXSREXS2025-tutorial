@@ -36,6 +36,7 @@ scripts = ["activate.sh"]
 
 [feature.base.dependencies]
 python = ">=3.11"
+myst-parser = "<2.0.0"
 matplotlib-base = ">=3.9"
 jupyterlab = ">=4.2"
 jupyterlab-mathjax3 = ">=4.3"
