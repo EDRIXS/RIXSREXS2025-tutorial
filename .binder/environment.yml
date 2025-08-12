@@ -3,7 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - python>=3.11
-  - jupyterlab=3.*
+  - jupyterlab=4.*
   - jupytext<2
   - jupyterlab-mathjax3>=4.3
   - jupyterlab-myst>=2.4
