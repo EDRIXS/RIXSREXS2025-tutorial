@@ -25,15 +25,15 @@ import edrixs
 import numpy as np
 import matplotlib.pyplot as plt
 
-%matplotlib widget
+%matplotlib inline
 ```
 
 ```{code-cell} ipython3
 :tags: [remove_input, remove_output]
+
 # Secretly make figures look nice!
-plt.rcParams.update({
-    'figure.dpi': 200,
-    'savefig.dpi': 300})
+plt.rcParams.update({'figure.dpi': 150, 'savefig.dpi': 150,
+                     'font.size': 8})
 ```
 
 ## Specify active core and valence orbitals
@@ -48,18 +48,17 @@ The paper specifies the interactions in terms of the Hund's interaction
 `JH`, Coulomb repulsion `Ud`, and spin orbit coupling `lam`. Other interaction parameters can be loaded from a database containing Hartree-Fock predictions.
 
 ```{code-cell} ipython3
-Ud = 2
-JH = 0.25
+F2_dd = 2.15
+F4_dd = 1.34
 lam = 0.42
-F0_d, F2_d, F4_d = edrixs.UdJH_to_F0F2F4(Ud, JH)
+
 info = edrixs.utils.get_atom_data('Ir', '5d', v_noccu, edge='L3')
 G1_dp = info['slater_n'][5][1]
 G3_dp = info['slater_n'][6][1]
-F0_dp = edrixs.get_F0('dp', G1_dp, G3_dp)
 F2_dp = info['slater_n'][4][1]
 
-slater = [[F0_d, F2_d, F4_d],
-          [F0_d, F2_d, F4_d, F0_dp, F2_dp, G1_dp, G3_dp]]
+slater = [[0, F2_dd, F4_dd],
+          [0, F2_dd, F4_dd, 0, F2_dp, G1_dp, G3_dp]]
 v_soc = (lam, lam)
 ```
 
@@ -69,9 +68,9 @@ Since we have already specified a $t_{2g}$ subshell only, we do not need to pass
 Note that we need to tune the energy of the intermediate state via `off`.
 
 ```{code-cell} ipython3
-:tags: [hide-output]
+:tags: [remove_output]
 
-off = 11209
+off = 11216
 out = edrixs.ed_1v1c_py(shell_name, shell_level=(0, -off), v_soc=v_soc,
                         c_soc=info['c_soc'], v_noccu=v_noccu, slater=slater)
 eval_i, eval_n, trans_op = out
@@ -80,7 +79,7 @@ eval_i, eval_n, trans_op = out
 ## Compute XAS
 
 ```{code-cell} ipython3
-:tags: [hide-output]
+:tags: [remove_output]
 
 ominc = np.arange(11200, 11230, 0.1)
 temperature = 300  # in K
@@ -96,7 +95,7 @@ xas = edrixs.xas_1v1c_py(
 ## Compute RIXS
 
 ```{code-cell} ipython3
-:tags: [hide-output]
+:tags: [remove_output]
 
 eloss = np.linspace(-.5, 6, 400)
 pol_type_rixs = [('linear', 0, 'linear', 0), ('linear', 0, 'linear', np.pi/2)]
@@ -120,11 +119,13 @@ The array ``xas`` will have shape ``(len(ominc_xas), len(pol_type))``.
 ## Plot XAS and RIXS
 
 ```{code-cell} ipython3
-fig, axs = plt.subplots(2, 2, figsize=(7, 7))
+:tags: [hide-output]
+
+fig, axs = plt.subplots(2, 1, figsize=(4, 6))
 
 def plot_it(axs, ominc, xas, eloss, rixscut, rixsmap=None, label=None):
-    axs[0].plot(ominc, xas[:, 0], label=label)
-    axs[0].set_xlabel('Energy (eV)')
+    axs[0].plot(ominc/1000, xas[:, 0], label=label)
+    axs[0].set_xlabel('Energy (keV)')
     axs[0].set_ylabel('Intensity')
     axs[0].set_title('XAS')
 
@@ -133,22 +134,11 @@ def plot_it(axs, ominc, xas, eloss, rixscut, rixsmap=None, label=None):
     axs[1].set_ylabel('Intensity')
     axs[1].set_title(f'RIXS at resonance')
 
-    if rixsmap is not None:
-        art = axs[2].pcolormesh(ominc, eloss, rixsmap.T, shading='auto')
-        plt.colorbar(art, ax=axs[2], label='Intensity')
-        axs[2].set_xlabel('Incident energy (eV)')
-        axs[2].set_ylabel('Energy loss')
-        axs[2].set_title('RIXS map')
-
-
 rixs_pol_sum = rixs.sum(-1)
 cut_index = np.argmax(rixs_pol_sum[:, eloss < 2].sum(1))
 rixscut = rixs_pol_sum[cut_index]
 
 plot_it(axs.ravel(), ominc, xas, eloss, rixscut, rixsmap=rixs_pol_sum)
-axs[0, 1].set_xlim(right=3)
-axs[1, 0].set_ylim(top=3)
-axs[1, 1].remove()
 plt.tight_layout()
 ```
 
@@ -156,11 +146,11 @@ plt.tight_layout()
 Does it make sense to consider only the $t_{2g}$ subshell?
 
 ```{code-cell} ipython3
-:tags: [hide-output]
+:tags: [remove_output]
 
 ten_dq = 3.5
 v_cfmat = edrixs.cf_cubic_d(ten_dq)
-off += ten_dq*2/5
+#off += ten_dq*2/5
 out = edrixs.ed_1v1c_py(('d', 'p32'), shell_level=(0, -off), v_soc=v_soc,
                         v_cfmat=v_cfmat,
                         c_soc=info['c_soc'], v_noccu=v_noccu, slater=slater)
@@ -182,16 +172,18 @@ rixs_full_d_shell = edrixs.rixs_1v1c_py(
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-fig, axs = plt.subplots(1, 2, figsize=(7, 3.5))
-plot_it(axs, ominc, xas, eloss, rixscut, label='$t_{2g}$ subshell')
-rixscut = rixs_full_d_shell.sum((0, -1))
-plot_it(axs, ominc, xas_full_d_shell, eloss, rixscut, label='$d$ shell')
+fig, axs = plt.subplots(2, 1, figsize=(4, 6))
 
-axs[0].legend()
-axs[1].legend()
+plot_it(axs, ominc, xas, eloss, rixscut, label='$t_{2g}$ subshell')
+rixscut_d_shell = rixs_full_d_shell.sum((0, -1))
+plot_it(axs, ominc, xas_full_d_shell, eloss, rixscut_d_shell, label='$d$ shell')
+
+for ax in axs:
+    ax.legend(fontsize=6)
 plt.tight_layout()
 ```
 
 ## References
+
 [^1]: Bo Yuan et al.,
        [Phys. Rev. B 95, 235114 (2017)](https://doi.org/10.1103/PhysRevB.95.235114)

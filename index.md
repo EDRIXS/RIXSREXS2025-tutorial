@@ -9,8 +9,6 @@ These tutorials introduce the use of EDRIXS.
 ## How to Run The Code
 For the tutorial, we recommend running the code entirely online via the first option, "In cloud via Binder".
 
-Open the .md files via right click > open with > Jupytext Notebook.
-
 `````{tab-set}
 ````{tab-item} In cloud via Binder
 

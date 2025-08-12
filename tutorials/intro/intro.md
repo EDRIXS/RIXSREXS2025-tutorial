@@ -27,28 +27,18 @@ $$
 
 ## Hamiltonian
 
-Adopting the second quantization formalism, Hamiltonians $\hat{H}$ in EDRIXS take the general form
+Adopting the second quantization formalism, Hamiltonians in EDRIXS involve:
 
-$$
-\hat{H} = \sum_{\alpha\beta}t_{\alpha\beta}\hat{f}_{\alpha}^{\dagger}\hat{f}^{\phantom\dagger}_{\beta}+\sum_{\alpha\beta\gamma\delta}U_{\alpha\beta\gamma\delta}\hat{f}_{\alpha}^{\dagger}\hat{f}_{\beta}^{\dagger}\hat{f}^{\phantom\dagger}_{\delta}\hat{f}^{\phantom\dagger}_{\gamma}, \label{eq:secondQ}
-$$
+A two fermion term that accounts for:
 
-where the indices run through atomic valence and core orbitals and $\hat{f}_{\alpha}^{\dagger}$
-creates an electron in spin-orbital $\alpha$. 
-
-The two fermion term $t_{\alpha\beta}$, called ``emat`` in the code, accounts for:
-
-* Crystal field
+* Crystal field. For example $10 D_q$, which is the splitting between the $e_g$ and $t_{2g}$ orbitals in octahedral symmetry. 
 * Spin orbit coupling
 * Hopping (in cases where this is part of the model)
 
-The four fermion term, called ``umat`` in the code, includes:
+The four fermion term that accounts for:
 
 * Intra Valence shell Coulomb interactions e.g. Slater integrals $F^0_{dd,i}$, $F^2_{dd,i}$, and $F^4_{dd,i}$ for a $d$ shell. 
 * Core-valence Coulomb interactions e.g. Slater integrals $G^1_{dp}$ and $G^3_{dp}$.
-
-## Basis
-By default, EDRIXS will work in the complex harmonic basis $Y^m_l$ where $m$ goes from $-l,-l+1,...,l-1, l$. There is an up spin and a down spin for each $Y^m_l$. On occation we will also use the real harmonic basis $d_{3z^2-r^2}, d_{xz}, d_{yz}, d_{x^2-y^2}, d_{xy}$. EDRIXS can straightfowardly translate between these notations.
 
 [^1]: EDRIXS: An open source toolkit for simulating spectra of resonant inelastic x-ray scattering, YL Wang, G Fabbris, MPM Dean, and G Kotliar, [Computer Physics Communications 243, 151–165 (2019)](https://doi.org/10.1016/j.cpc.2019.04.018)
 
