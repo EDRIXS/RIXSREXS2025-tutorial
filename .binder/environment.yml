@@ -2,9 +2,11 @@ name: edrixs_tutorial
 channels:
   - conda-forge
 dependencies:
+  - python>=3.11
   - jupyterlab=3.*
-  - jupytext
+  - jupytext<2
   - jupyterlab-mathjax3>=4.3
+  - jupyterlab-myst>=2.4
   - edrixs>=0.0.8
   - ipympl=0.9.*
   - ipywidgets=8.*
