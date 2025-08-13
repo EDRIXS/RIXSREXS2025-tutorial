@@ -1,6 +1,3 @@
-# Instructions
-Open the tutorials via right click > open with > Jupytext Notebook.
-
 ## Contents
 The tutorials cover:
 1. Introductory materials in intro/intro.md

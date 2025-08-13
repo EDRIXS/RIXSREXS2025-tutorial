@@ -108,7 +108,7 @@ gamma_f = 0.02
 
 rixs = edrixs.rixs_1v1c_py(
     eval_i, eval_n, trans_op, ominc, eloss,
-    gamma_c=info['gamma_c'], gamma_f=gamma_f*0.01,
+    gamma_c=info['gamma_c'], gamma_f=gamma_f,
     thin=thin, thout=thout,
     pol_type=pol_type_rixs, gs_list=gs_list,
     temperature=temperature
