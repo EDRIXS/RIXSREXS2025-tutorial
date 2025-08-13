@@ -163,12 +163,16 @@ out = edrixs.ed_1v1c_py(('d', 'p32'), shell_level=(0, -off), v_soc=v_soc,
                         v_cfmat=v_cfmat,
                         c_soc=info['c_soc'], v_noccu=v_noccu, slater=slater)
 eval_i, eval_n, trans_op = out
+```
 
+```{code-cell} ipython3
 xas_full_d_shell = edrixs.xas_1v1c_py(
     eval_i, eval_n, trans_op, ominc, gamma_c=info['gamma_c'],
     thin=thin, pol_type=pol_type,
     gs_list=gs_list)
+```
 
+```{code-cell} ipython3
 rixs_full_d_shell = edrixs.rixs_1v1c_py(
     eval_i, eval_n, trans_op, np.array([11215]), eloss,
     gamma_c=info['gamma_c'], gamma_f=gamma_f,
