@@ -32,8 +32,9 @@ Adopting the second quantization formalism, Hamiltonians in EDRIXS involve:
 A two fermion term that accounts for:
 
 * Crystal field. For example $10 D_q$, which is the splitting between the $e_g$ and $t_{2g}$ orbitals in octahedral symmetry. 
-* Spin orbit coupling
-* Hopping (in cases where this is part of the model)
+* Spin orbit coupling, $\lambda_i$, $\lambda_n$, $\lambda_c$
+* Hopping (in cases where this is part of the model) $V_{eg}$, $V_{t2g}$
+* Charge-transfer energy $\Delta$
 
 The four fermion term that accounts for:
 

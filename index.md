@@ -1,11 +1,5 @@
 # EDRIXS Course for RIXSREXS2025
 
-These tutorials introduce the use of EDRIXS.
-
-- _tutorials/intro/intro.md_ -- Summary of EDRIXS notation, geometry, Hamiltonian, and basis
-- _tutorials/atomic/atomic_model.md_ -- Single atom model for an iridate
-- _tutorials/AIM/AIM.md_ -- Anderson Impurity Model (AIM) for NiPS₃
-
 ## How to Run The Code
 For the tutorial, we recommend running the code entirely online via the first option, "In cloud via Binder".
 

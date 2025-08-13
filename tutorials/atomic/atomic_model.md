@@ -44,8 +44,7 @@ v_noccu = 4
 ```
 
 ## Slater parameters
-The paper specifies the interactions in terms of the Hund's interaction
-`JH`, Coulomb repulsion `Ud`, and spin orbit coupling `lam`. Other interaction parameters can be loaded from a database containing Hartree-Fock predictions.
+The paper specifies the valence Coulomb interactions and spin orbit coupling [^1][^2]. Other interaction parameters can be loaded from a database containing Hartree-Fock predictions.
 
 ```{code-cell} ipython3
 F2_dd = 2.15
@@ -92,6 +91,10 @@ xas = edrixs.xas_1v1c_py(
     thin=thin, pol_type=pol_type)
 ```
 
+The array ``xas`` will have shape ``(len(ominc), len(pol_type))``.
+
++++
+
 ## Compute RIXS
 
 ```{code-cell} ipython3
@@ -105,18 +108,21 @@ gamma_f = 0.02
 
 rixs = edrixs.rixs_1v1c_py(
     eval_i, eval_n, trans_op, ominc, eloss,
-    gamma_c=info['gamma_c'], gamma_f=gamma_f,
+    gamma_c=info['gamma_c'], gamma_f=gamma_f*0.01,
     thin=thin, thout=thout,
     pol_type=pol_type_rixs, gs_list=gs_list,
     temperature=temperature
 )
 ```
 
-The array ``xas`` will have shape ``(len(ominc_xas), len(pol_type))``.
+The array ``rixs`` will have shape ``(len(ominc), len(eloss), len(pol_type))``.
 
-
++++
 
 ## Plot XAS and RIXS
+What do you expect the XAS spectrum to look like?
+
+Why is there zero elastic intensity and what could I alter in the experimental geometry in order to see elastic intensity?
 
 ```{code-cell} ipython3
 :tags: [hide-output]
@@ -143,14 +149,16 @@ plt.tight_layout()
 ```
 
 ## Full d shell calculation
-Does it make sense to consider only the $t_{2g}$ subshell?
+Does it make sense to consider only the $t_{2g}$ subshell [^3]?
+
+How will the XAS and RIXS spectra change when including the $e_{g}$ states?
 
 ```{code-cell} ipython3
 :tags: [remove_output]
 
 ten_dq = 3.5
 v_cfmat = edrixs.cf_cubic_d(ten_dq)
-#off += ten_dq*2/5
+
 out = edrixs.ed_1v1c_py(('d', 'p32'), shell_level=(0, -off), v_soc=v_soc,
                         v_cfmat=v_cfmat,
                         c_soc=info['c_soc'], v_noccu=v_noccu, slater=slater)
@@ -187,3 +195,5 @@ plt.tight_layout()
 
 [^1]: Bo Yuan et al.,
        [Phys. Rev. B 95, 235114 (2017)](https://doi.org/10.1103/PhysRevB.95.235114)
+[^2]: EDRIXS provides utilities for converting $U$ and $J_H$ into Slater parameters [here](https://edrixs.github.io/edrixs/reference/utils.html#edrixs.utils.UdJH_to_F0F2F4).
+[^3]: Georgios L. Stamokostas and Gregory A. Fiete [Phys. Rev. B 97, 085150 (2018)](https://doi.org/10.1103/PhysRevB.97.085150)
