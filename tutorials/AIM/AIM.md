@@ -14,7 +14,7 @@ kernelspec:
 # RIXS calculations for an Anderson Impurity Model
 An Anderson Impurity Model (AIM) refers to a Hamiltonian with a set of correlated orbitals, often called the impurity or metal states, that hybridize with a set of uncorrelated orbitals, often called the ligands or bath states. 
 
-This example examines RIXS simulations for NiPS₃ based on Ref. [^1]. The code used can be seen in `helper_function.py` when running the example. A more detailed description of AIMs in EDRIXS is available [here](https://edrixs.github.io/edrixs/auto_examples/example_3_AIM_XAS.html#sphx-glr-auto-examples-example-3-aim-xas-py).
+This example examines RIXS simulations for NiPS₃ based on Ref. [^1]. The code used can be seen in [helper_function.py](https://github.com/EDRIXS/RIXSREXS2025-tutorial/blob/main/tutorials/AIM/helper_function.py). A more detailed description of AIMs in EDRIXS is available [here](https://edrixs.github.io/edrixs/auto_examples/example_3_AIM_XAS.html#sphx-glr-auto-examples-example-3-aim-xas-py).
 
 ![AIM](./levels.png)
 
