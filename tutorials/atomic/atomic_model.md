@@ -36,8 +36,11 @@ plt.rcParams.update({'figure.dpi': 150, 'savefig.dpi': 150,
                      'font.size': 8})
 
 # fix a threading problem on mybinder.org
-from threadpoolctl import threadpool_limits
-_tpool_ctx = threadpool_limits(limits=1)
+try:
+    from threadpoolctl import threadpool_limits
+    _tpool_ctx = threadpool_limits(limits=1)
+except:
+    pass
 ```
 
 ## Specify active core and valence orbitals
