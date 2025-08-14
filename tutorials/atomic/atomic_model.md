@@ -34,6 +34,10 @@ import matplotlib.pyplot as plt
 # Secretly make figures look nice!
 plt.rcParams.update({'figure.dpi': 150, 'savefig.dpi': 150,
                      'font.size': 8})
+
+# fix a threading problem on mybinder.org
+from threadpoolctl import threadpool_limits
+_tpool_ctx = threadpool_limits(limits=1)
 ```
 
 ## Specify active core and valence orbitals
@@ -158,6 +162,7 @@ How will the XAS and RIXS spectra change when including the $e_{g}$ states?
 
 ten_dq = 3.5
 v_cfmat = edrixs.cf_cubic_d(ten_dq)
+
 
 out = edrixs.ed_1v1c_py(('d', 'p32'), shell_level=(0, -off), v_soc=v_soc,
                         v_cfmat=v_cfmat,
