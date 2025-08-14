@@ -22,3 +22,4 @@ dependencies:
   - sphinx-book-theme
   - sphinx-design
   - sphinx-copybutton
+  - threadpoolctl
