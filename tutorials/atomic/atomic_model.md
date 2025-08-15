@@ -174,6 +174,8 @@ eval_i, eval_n, trans_op = out
 ```
 
 ```{code-cell} ipython3
+:tags: [remove_output]
+
 xas_full_d_shell = edrixs.xas_1v1c_py(
     eval_i, eval_n, trans_op, ominc, gamma_c=info['gamma_c'],
     thin=thin, pol_type=pol_type,
@@ -181,6 +183,8 @@ xas_full_d_shell = edrixs.xas_1v1c_py(
 ```
 
 ```{code-cell} ipython3
+:tags: [remove_output]
+
 rixs_full_d_shell = edrixs.rixs_1v1c_py(
     eval_i, eval_n, trans_op, np.array([11215]), eloss,
     gamma_c=info['gamma_c'], gamma_f=gamma_f,
