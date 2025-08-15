@@ -12,13 +12,14 @@ kernelspec:
 ---
 
 # RIXS calculations for an Anderson Impurity Model
-An Anderson Impurity Model (AIM) refers to a Hamiltonian with a set of correlated orbitals, often called the impurity or metal states, that hybridize with a set of uncorrelated orbitals, often called the ligands or bath states. 
+An Anderson Impurity Model (AIM) refers to a Hamiltonian with a set of correlated orbitals, often referred to as the impurity or metal states, that hybridize with a set of uncorrelated orbitals, commonly known as the ligands or bath states. 
 
-This example examines RIXS simulations for NiPS₃ based on Ref. [^1]. The code used can be seen in [helper_function.py](https://github.com/EDRIXS/RIXSREXS2025-tutorial/blob/main/tutorials/AIM/helper_function.py). A more detailed description of AIMs in EDRIXS is available [here](https://edrixs.github.io/edrixs/auto_examples/example_3_AIM_XAS.html#sphx-glr-auto-examples-example-3-aim-xas-py).
+This example examines RIXS simulations for NiPS₃ based on Ref. [^1].
 
 ![AIM](./levels.png)
 
-The function we will run can be examined [here](https://github.com/EDRIXS/RIXSREXS2025-tutorial/blob/main/tutorials/AIM/helper_function.py). In this example, we will focus on some properties of the model.
+In this example, we will focus on some properties of the model. If desired, the function we will run can be examined [here](https://github.com/EDRIXS/RIXSREXS2025-tutorial/blob/main/tutorials/AIM/helper_function.py).
+
 
 ```{code-cell} ipython3
 :tags: [remove_output]
@@ -58,10 +59,11 @@ art = ax.pcolormesh(ominc, eloss, rixs.sum(-1).T, cmap='terrain', shading='goura
 plt.colorbar(art, ax=ax, orientation='horizontal')
 ax.set_xlabel('Incident energy (eV)')
 ax.set_ylabel('Energy loss (eV)')
-ax.set_title(f"{impurity_occupation:.1f} electrons on Ni")
+ax.set_title(f"Model from Nat. Comm. 15, 3496 (2024)")
 plt.tight_layout()
 plt.show()
 ```
+Let's discuss how we obtained this model. (If desired, the full gory details are in Ref. [^2].)
 
 ## Magnetic field behavior
 What is the spin of the ground state? And what will happen when a magnetic field is applied?
@@ -117,3 +119,6 @@ plt.show()
 
 [^1]: Wei He et al.,
        [Nature Communications 15, 3496 (2024)](https://doi.org/10.1038/s41467-024-47852-x).
+
+[^2]: Wei He et al.,
+       Nature Communications 15, 3496 (2024) [Supplementary information](https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-024-47852-x/MediaObjects/41467_2024_47852_MOESM1_ESM.pdf)
